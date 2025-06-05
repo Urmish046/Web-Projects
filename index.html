@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Your Fitness Journey</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4f46e5',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@iconify/iconify"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+     <link rel = "stylesheet" href="stylesheet.css">
+   
+</head>
+<body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="gradient-bg fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-white text-3xl font-['Pacifico'] opacity-0 transition-opacity duration-1000" id="logo">
+                    FitTrack
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-white hover:text-gray-200 transition-colors">Home</a>
+                    <a href="#stats" class="nav-link text-white hover:text-gray-200 transition-colors">Dashboard</a>
+                    <a href="#workouts" class="nav-link text-white hover:text-gray-200 transition-colors">Workouts</a>
+                    <a href="#achievements" class="nav-link text-white hover:text-gray-200 transition-colors">Achievements</a>
+                    <a href="#community" class="nav-link text-white hover:text-gray-200 transition-colors">Community</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <!-- <a href="#" class="text-white hover:text-gray-200 transition-colors">Login</a>
+                    <button class="pulse bg-white text-primary px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Sign Up</button>-->
+                    <!-- class="bg-gray-900 text-white flex items-center justify-center min-h-screen"> -->
+                 <div class="flex items-center space-x-4">
+                 <a href="login.html" class="text-white hover:text-gray-200 transition-colors">Login</a>
+                 <a href="signup.html" class="pulse bg-white text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Sign Up</a>
+ 
+                </div> 
+                <div class="md:hidden w-6 h-6 flex items-center justify-center text-white">
+                    <i class="ri-menu-line ri-lg"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center parallax" id="hero">
+        <div style="background-image: url('https://readdy.ai/api/search-image?query=A%20high-quality%20fitness-themed%20background%20image%20with%20a%20modern%20gym%20environment%2C%20showing%20workout%20equipment%2C%20people%20exercising%2C%20and%20a%20clean%2C%20well-lit%20space.%20The%20image%20should%20have%20a%20gradient%20from%20dark%20blue%20to%20teal%20on%20the%20left%20side%2C%20gradually%20fading%20to%20a%20clearer%20view%20of%20the%20gym%20on%20the%20right.%20The%20left%20side%20should%20be%20darker%20to%20make%20white%20text%20readable.&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;" class="absolute inset-0 z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10"></div>
+        <div class="container mx-auto px-6 z-20 w-full">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 slide-in-left">Track Your Fitness Journey</h1>
+                <p class="text-xl text-gray-200 mb-8 fade-in">Achieve your fitness goals with our advanced tracking technology. Monitor your progress, celebrate achievements, and join a community of fitness enthusiasts.</p>
+                <div class="flex flex-col sm:flex-row gap-4 fade-in">
+                    <!-- <button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 !rounded-button font-medium transition-transform hover:scale-105 whitespace-nowrap">Get Started</button> -->
+                     <button class="bg-blue-800 hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-medium transition-transform hover:scale-105 whitespace-nowrap border-2 border-blue-800 hover:border-blue-900">Get Started</button>
+
+                    <button class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30 px-8 py-3 !rounded-button font-medium transition-all whitespace-nowrap">Watch Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Stats Dashboard -->
+    <section id="stats" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in">Your Activity Dashboard</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12 fade-in">Track your daily progress and stay motivated with real-time stats and personalized insights.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <!-- Steps Card -->
+                <div class="relative bg-white rounded-lg shadow-lg p-6 h-64 stats-card">
+                    <div class="stats-card-front flex flex-col items-center justify-center">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <i class="ri-footprint-line ri-3x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Daily Steps</h3>
+                        <div class="text-4xl font-bold text-primary" id="steps-counter">0</div>
+                        <p class="text-gray-500 mt-2">of 10,000 goal</p>
+                    </div>
+                    <div class="stats-card-back bg-primary rounded-lg p-6 flex flex-col items-center justify-center">
+                        <h3 class="text-xl font-semibold text-white mb-4">Steps History</h3>
+                        <div class="w-full h-32" id="steps-chart"></div>
+                    </div>
+                </div>
+                
+                <!-- Distance Card -->
+                <div class="relative bg-white rounded-lg shadow-lg p-6 h-64 stats-card">
+                    <div class="stats-card-front flex flex-col items-center justify-center">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <i class="ri-route-line ri-3x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Distance</h3>
+                        <div class="text-4xl font-bold text-primary" id="distance-counter">0</div>
+                        <p class="text-gray-500 mt-2">kilometers today</p>
+                    </div>
+                    <div class="stats-card-back bg-primary rounded-lg p-6 flex flex-col items-center justify-center">
+                        <h3 class="text-xl font-semibold text-white mb-4">Weekly Distance</h3>
+                        <div class="w-full h-32" id="distance-chart"></div>
+                    </div>
+                </div>
+                
+                <!-- Calories Card -->
+                <div class="relative bg-white rounded-lg shadow-lg p-6 h-64 stats-card">
+                    <div class="stats-card-front flex flex-col items-center justify-center">
+                        <div class="w-24 h-24 relative mb-4">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#4f46e5" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="70" class="circle-progress" transform="rotate(-90 50 50)"/>
+                                <text x="50" y="55" text-anchor="middle" font-size="20" font-weight="bold" fill="#4f46e5" id="calories-text">75%</text>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Calories</h3>
+                        <div class="text-4xl font-bold text-primary" id="calories-counter">0</div>
+                        <p class="text-gray-500 mt-2">burned today</p>
+                    </div>
+                    <div class="stats-card-back bg-primary rounded-lg p-6 flex flex-col items-center justify-center">
+                        <h3 class="text-xl font-semibold text-white mb-4">Calorie Breakdown</h3>
+                        <div class="w-full h-32" id="calories-chart"></div>
+                    </div>
+                </div>
+                
+                <!-- Active Minutes Card -->
+                <div class="relative bg-white rounded-lg shadow-lg p-6 h-64 stats-card">
+                    <div class="stats-card-front flex flex-col items-center justify-center">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <i class="ri-time-line ri-3x text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Active Minutes</h3>
+                        <div class="text-4xl font-bold text-primary" id="minutes-counter">0</div>
+                        <div class="w-full bg-gray-200 h-2 rounded-full mt-4">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 0%;" id="minutes-progress"></div>
+                        </div>
+                        <p class="text-gray-500 mt-2">of 60 minute goal</p>
+                    </div>
+                    <div class="stats-card-back bg-primary rounded-lg p-6 flex flex-col items-center justify-center">
+                        <h3 class="text-xl font-semibold text-white mb-4">Activity Intensity</h3>
+                        <div class="w-full h-32" id="activity-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workout Timeline -->
+    <section id="workouts" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in">Your Workout Timeline</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12 fade-in">Track your fitness journey with a detailed history of your workouts and progress.</p>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+                
+                <!-- Timeline Items -->
+                <div class="timeline-items space-y-12">
+                    <!-- Workout 1 -->
+                    <div class="relative flex items-center justify-between slide-in-left">
+                        <div class="w-5/12 pr-8 text-right">
+                            <div class="text-sm text-gray-500">Today, 7:30 AM</div>
+                            <h3 class="text-xl font-semibold mb-2">Morning Run</h3>
+                            <p class="text-gray-600">Started your day with an energizing 5K run through Central Park.</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="ri-run-line text-white"></i>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Duration:</span>
+                                    <span class="font-semibold" id="duration-1">28 min</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Distance:</span>
+                                    <span class="font-semibold">5.2 km</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Pace:</span>
+                                    <span class="font-semibold">5:23 min/km</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Intensity:</span>
+                                    <div class="flex space-x-1">
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                                        <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Workout 2 -->
+                    <div class="relative flex items-center justify-between slide-in-right">
+                        <div class="w-5/12 pr-8">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Duration:</span>
+                                    <span class="font-semibold" id="duration-2">45 min</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Sets:</span>
+                                    <span class="font-semibold">4 sets</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Reps:</span>
+                                    <span class="font-semibold">12-15 reps</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Intensity:</span>
+                                    <div class="flex space-x-1">
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="ri-dumbbell-line text-white"></i>
+                        </div>
+                        <div class="w-5/12 pl-8 text-left">
+                            <div class="text-sm text-gray-500">Yesterday, 6:15 PM</div>
+                            <h3 class="text-xl font-semibold mb-2">Upper Body Strength</h3>
+                            <p class="text-gray-600">Focused on chest, shoulders and triceps with progressive overload.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Workout 3 -->
+                    <div class="relative flex items-center justify-between slide-in-left">
+                        <div class="w-5/12 pr-8 text-right">
+                            <div class="text-sm text-gray-500">June 4, 8:00 AM</div>
+                            <h3 class="text-xl font-semibold mb-2">Yoga Session</h3>
+                            <p class="text-gray-600">Morning flow focusing on flexibility and mindfulness.</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="ri-yoga-line text-white"></i>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Duration:</span>
+                                    <span class="font-semibold" id="duration-3">60 min</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Type:</span>
+                                    <span class="font-semibold">Vinyasa Flow</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Focus:</span>
+                                    <span class="font-semibold">Core & Balance</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Intensity:</span>
+                                    <div class="flex space-x-1">
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                                        <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                                        <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Workout 4 -->
+                    <div class="relative flex items-center justify-between slide-in-right">
+                        <div class="w-5/12 pr-8">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Duration:</span>
+                                    <span class="font-semibold" id="duration-4">35 min</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Distance:</span>
+                                    <span class="font-semibold">15 km</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Avg. Speed:</span>
+                                    <span class="font-semibold">25.7 km/h</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Intensity:</span>
+                                    <div class="flex space-x-1">
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                                        <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="ri-bike-line text-white"></i>
+                        </div>
+                        <div class="w-5/12 pl-8 text-left">
+                            <div class="text-sm text-gray-500">June 3, 5:30 PM</div>
+                            <h3 class="text-xl font-semibold mb-2">Cycling</h3>
+                            <p class="text-gray-600">Evening ride along the riverside trail with interval training.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Section -->
+    <section id="achievements" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in">Your Achievements</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12 fade-in">Celebrate your fitness milestones and unlock new badges as you progress.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+                <!-- Achievement 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center unlocked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-medal-line ri-3x text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2">Early Riser</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">Complete 5 workouts before 8 AM</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">5/5 Completed</p>
+                </div>
+                
+                <!-- Achievement 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center unlocked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-footprint-line ri-3x text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2">Step Master</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">Reach 10,000 steps for 7 consecutive days</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">7/7 Days</p>
+                </div>
+                
+                <!-- Achievement 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center unlocked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-run-line ri-3x text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2">Marathon Prep</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">Run a total of 100 kilometers</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 75%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">75/100 km</p>
+                </div>
+                
+                <!-- Achievement 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center unlocked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-heart-pulse-line ri-3x text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2">Heart Health</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">Maintain target heart rate zone for 30 minutes</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">30/30 Minutes</p>
+                </div>
+                
+                <!-- Achievement 5 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center unlocked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-calendar-check-line ri-3x text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2">Consistency King</h3>
+                    <p class="text-gray-500 text-center text-sm mb-4">Work out for 30 consecutive days</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 83%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">25/30 Days</p>
+                </div>
+                
+                <!-- Achievement 6 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center locked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-bike-line ri-3x text-gray-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2 text-gray-400">Cycling Pro</h3>
+                    <p class="text-gray-400 text-center text-sm mb-4">Complete a 50 km cycling session</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-gray-400 h-2 rounded-full progress-bar" style="width: 30%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">15/50 km</p>
+                </div>
+                
+                <!-- Achievement 7 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center locked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-group-line ri-3x text-gray-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2 text-gray-400">Social Butterfly</h3>
+                    <p class="text-gray-400 text-center text-sm mb-4">Join 5 group workouts</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-gray-400 h-2 rounded-full progress-bar" style="width: 40%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">2/5 Workouts</p>
+                </div>
+                
+                <!-- Achievement 8 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center locked fade-in badge-3d">
+                    <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                        <i class="ri-fire-line ri-3x text-gray-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-center mb-2 text-gray-400">Calorie Crusher</h3>
+                    <p class="text-gray-400 text-center text-sm mb-4">Burn 5,000 calories in a week</p>
+                    <div class="w-full bg-gray-200 h-2 rounded-full">
+                        <div class="bg-gray-400 h-2 rounded-full progress-bar" style="width: 60%;"></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">3,000/5,000 kcal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Feed -->
+    <section id="community" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in">Fitness Community</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12 fade-in">Get inspired by others and share your fitness journey with our community.</p>
+            
+            <div class="masonry mt-12">
+                <!-- Post 1 -->
+                <div class="masonry-item fade-in">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20person%20in%20athletic%20wear%20running%20on%20a%20scenic%20trail%20through%20a%20forest%20with%20sunlight%20filtering%20through%20trees.%20The%20runner%20appears%20energetic%20and%20focused%2C%20wearing%20high-quality%20running%20shoes%20and%20athletic%20clothing.%20The%20image%20should%20capture%20the%20serenity%20of%20nature%20combined%20with%20the%20dynamism%20of%20running.&width=600&height=400&seq=2&orientation=landscape" alt="Morning run" class="w-full h-48 object-cover object-top">
+                        <div class="p-4">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="ri-user-line text-gray-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Emily Richardson</h4>
+                                    <p class="text-gray-500 text-xs">2 hours ago</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">Morning trail run complete! 🏃‍♀️ Nothing beats the fresh air and beautiful scenery to start the day. Feeling energized and ready to tackle whatever comes my way. #MorningRun #FitnessJourney</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="like-button flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line mr-1"></i>
+                                        <span>87</span>
+                                    </button>
+                                    <button class="flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-chat-1-line mr-1"></i>
+                                        <span>12</span>
+                                    </button>
+                                </div>
+                                <button class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="ri-share-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post 2 -->
+                <div class="masonry-item fade-in">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20person%20in%20a%20gym%20setting%20performing%20a%20weightlifting%20exercise%20with%20dumbbells.%20The%20individual%20should%20be%20demonstrating%20proper%20form%20while%20doing%20an%20upper%20body%20workout.%20The%20gym%20environment%20should%20look%20modern%20and%20well-equipped%20with%20other%20fitness%20equipment%20visible%20in%20the%20background.%20The%20lighting%20should%20be%20bright%20and%20energetic.&width=600&height=600&seq=3&orientation=squarish" alt="Strength training" class="w-full h-64 object-cover object-top">
+                        <div class="p-4">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="ri-user-line text-gray-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Marcus Johnson</h4>
+                                    <p class="text-gray-500 text-xs">Yesterday</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">Hit a new personal record on bench press today! 💪 Consistency and proper form are finally paying off. Thanks to everyone who's been supporting my fitness journey. #StrengthTraining #PersonalBest</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="like-button flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line mr-1"></i>
+                                        <span>124</span>
+                                    </button>
+                                    <button class="flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-chat-1-line mr-1"></i>
+                                        <span>28</span>
+                                    </button>
+                                </div>
+                                <button class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="ri-share-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post 3 -->
+                <div class="masonry-item fade-in">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20healthy%2C%20colorful%20meal%20preparation%20scene%20with%20various%20containers%20filled%20with%20nutritious%20foods.%20The%20meal%20prep%20should%20include%20lean%20proteins%2C%20colorful%20vegetables%2C%20and%20whole%20grains%20arranged%20in%20an%20aesthetically%20pleasing%20way.%20The%20scene%20should%20be%20bright%20and%20vibrant%2C%20showcasing%20the%20variety%20of%20fresh%20ingredients%20and%20careful%20organization%20of%20a%20weeks%20worth%20of%20healthy%20meals.&width=600&height=500&seq=4&orientation=landscape" alt="Meal prep" class="w-full h-56 object-cover object-top">
+                        <div class="p-4">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="ri-user-line text-gray-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Sophia Williams</h4>
+                                    <p class="text-gray-500 text-xs">3 days ago</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">Sunday meal prep complete! 🥗 Eating healthy doesn't have to be boring or time-consuming. These colorful meals are packed with protein and nutrients to fuel my workouts all week. #MealPrep #HealthyEating</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="like-button flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line mr-1"></i>
+                                        <span>156</span>
+                                    </button>
+                                    <button class="flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-chat-1-line mr-1"></i>
+                                        <span>42</span>
+                                    </button>
+                                </div>
+                                <button class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="ri-share-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post 4 -->
+                <div class="masonry-item fade-in">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20person%20in%20a%20yoga%20pose%20on%20a%20mat%20outdoors%20with%20a%20beautiful%20natural%20background%20like%20a%20beach%2C%20mountain%2C%20or%20garden.%20The%20individual%20should%20be%20demonstrating%20a%20challenging%20but%20graceful%20yoga%20position%20with%20proper%20form.%20The%20lighting%20should%20be%20soft%20and%20serene%2C%20creating%20a%20peaceful%20atmosphere%20that%20reflects%20the%20mindful%20nature%20of%20yoga%20practice.&width=600&height=450&seq=5&orientation=landscape" alt="Yoga session" class="w-full h-52 object-cover object-top">
+                        <div class="p-4">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="ri-user-line text-gray-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Olivia Thompson</h4>
+                                    <p class="text-gray-500 text-xs">1 week ago</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">Finding my balance, both physically and mentally. 🧘‍♀️ Today's yoga session reminded me that fitness isn't just about physical strength, but also about mental clarity and peace. #YogaLife #Mindfulness</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="like-button flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line mr-1"></i>
+                                        <span>93</span>
+                                    </button>
+                                    <button class="flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-chat-1-line mr-1"></i>
+                                        <span>15</span>
+                                    </button>
+                                </div>
+                                <button class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="ri-share-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post 5 -->
+                <div class="masonry-item fade-in">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20fitness%20tracker%20or%20smartwatch%20displaying%20workout%20statistics%20on%20a%20wrist.%20The%20device%20should%20show%20clear%20metrics%20like%20heart%20rate%2C%20steps%2C%20and%20calories%20burned.%20The%20background%20should%20suggest%20an%20active%20lifestyle%2C%20perhaps%20with%20workout%20equipment%20or%20outdoor%20scenery%20partially%20visible.%20The%20image%20should%20highlight%20the%20technologys%20integration%20with%20fitness%20activities.&width=600&height=400&seq=6&orientation=landscape" alt="Fitness tracker" class="w-full h-48 object-cover object-top">
+                        <div class="p-4">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="ri-user-line text-gray-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Daniel Chen</h4>
+                                    <p class="text-gray-500 text-xs">5 days ago</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">My FitTrack stats for the month are in! 📊 Averaged 12,000 steps daily and hit my workout goals 90% of the time. Love seeing my progress all in one place. #FitnessGoals #TrackYourProgress</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="like-button flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line mr-1"></i>
+                                        <span>78</span>
+                                    </button>
+                                    <button class="flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-chat-1-line mr-1"></i>
+                                        <span>9</span>
+                                    </button>
+                                </div>
+                                <button class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="ri-share-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post 6 -->
+                <div class="masonry-item fade-in">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=A%20group%20of%20diverse%20people%20participating%20in%20a%20high-energy%20fitness%20class%20in%20a%20modern%20gym%20setting.%20The%20participants%20should%20be%20engaged%20in%20a%20workout%2C%20showing%20various%20expressions%20of%20effort%2C%20determination%2C%20and%20enjoyment.%20The%20gym%20should%20be%20well-lit%20with%20professional%20equipment%20visible.%20The%20image%20should%20capture%20the%20social%20and%20motivational%20aspects%20of%20group%20fitness.&width=600&height=500&seq=7&orientation=landscape" alt="Group workout" class="w-full h-56 object-cover object-top">
+                        <div class="p-4">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="ri-user-line text-gray-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">James Wilson</h4>
+                                    <p class="text-gray-500 text-xs">2 days ago</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">First time trying a HIIT class and I'm hooked! 🔥 The energy of the group pushed me to work harder than I would have on my own. Can't wait for the next session! #GroupFitness #HIITWorkout</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="like-button flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-heart-line mr-1"></i>
+                                        <span>112</span>
+                                    </button>
+                                    <button class="flex items-center text-gray-500 hover:text-primary transition-colors">
+                                        <i class="ri-chat-1-line mr-1"></i>
+                                        <span>23</span>
+                                    </button>
+                                </div>
+                                <button class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="ri-share-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="gradient-bg py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
+                <div>
+                    <h3 class="text-3xl font-['Pacifico'] mb-6">FitTrack</h3>
+                    <p class="mb-6">Track your fitness journey, celebrate achievements, and connect with a community of fitness enthusiasts.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i class="ri-twitter-x-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-gray-200 transition-colors">Home</a></li>
+                        <li><a href="#stats" class="hover:text-gray-200 transition-colors">Dashboard</a></li>
+                        <li><a href="#workouts" class="hover:text-gray-200 transition-colors">Workouts</a></li>
+                        <li><a href="#achievements" class="hover:text-gray-200 transition-colors">Achievements</a></li>
+                        <li><a href="#community" class="hover:text-gray-200 transition-colors">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-gray-200 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-gray-200 transition-colors">Workout Library</a></li>
+                        <li><a href="#" class="hover:text-gray-200 transition-colors">Nutrition Guide</a></li>
+                        <li><a href="#" class="hover:text-gray-200 transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-gray-200 transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Subscribe</h4>
+                    <p class="mb-4">Get the latest fitness tips and updates delivered to your inbox.</p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="bg-white/10 border border-white/30 rounded-l-button px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-white/50 text-white">
+                            <button type="submit" class="bg-white text-primary px-4 py-2 !rounded-r-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="flex space-x-4">
+                        <div class="flex items-center justify-center">
+                            <i class="ri-visa-fill ri-lg"></i>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="ri-mastercard-fill ri-lg"></i>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="ri-paypal-fill ri-lg"></i>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="ri-apple-fill ri-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/70">
+                <p>&copy; 2025 FitTrack. All rights reserved. | <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | <a href="#" class="hover:text-white transition-colors">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="fitnessApp.js"></script>
+</body>
+</html>
